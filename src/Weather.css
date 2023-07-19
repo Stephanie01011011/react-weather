@@ -7,6 +7,10 @@
 }
 .search input{
     width: 200px;
+    height: 30px;
+    border-radius: 5px;
+    border-style: solid;
+    border-color: greenyellow;
 }
 .search button{
     margin-top: 30px;
@@ -16,5 +20,14 @@
     border-style: none;
     outline-style: none;
     border-radius: 30px;
+    
+}
+.container{
+    display: flex;
+    
+}
+.display{
+    color: white;
+    margin-left: 30%;
     
 }
