@@ -1,12 +1,12 @@
 
 import './App.css';
-import Weather from './Weather';
+import Search from './Search';
 import Footer from './Footer';
 
 function App() {
   return (
     <div className="App">
-      <Weather />
+      <Search />
       <Footer />
     </div>
   );
