@@ -1,90 +1,74 @@
 import './Weather.css';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import axios from 'axios';
+const apikey= process.env.REACT_APP_API_KEY;
 
+console.log(apikey);
 
 function Weather() {
+    const [display, setDisplay] = useState(false);
     const [city, setCity] = useState("");
+    const [img, setImg] = useState("");
     const [data, setData] = useState({});
-    const [lon, setLon] = useState();
-    const [lat, setLat] = useState();
     const [description, setDescription] = useState("")
-    const [temp, setTemp] = useState();
+    const [temp, setTemp] = useState("");
     
-    const locUrl = `http://api.openweathermap.org/geo/1.0/direct?q=${city}&limit=5&appid=ce8a56a68d4792f118a4d73c42dc0340`
-    const weatherUrl = "https://api.openweathermap.org/data/2.5/weather?lat=" + lat + "&lon=" + lon + "&appid=ce8a56a68d4792f118a4d73c42dc0340";
+    
+    const url = `http://api.weatherapi.com/v1/current.json?key=${apikey}&q=${city}`;
 
     let name = document.getElementById('name');
     let icon = document.getElementById('icon');
     let descr = document.getElementById('descr');
+    let temperature = document.getElementById('temp');
+    
     
     
    
-        const getLoc = () => {
+        const getWeather = () => {
            
-            //var input = document.getElementById("searchInput").value;
-            
-            //setCity(input);
-            
-            axios.get(locUrl).then((response) => {
+            axios.get(url).then((response) => {
                 
-                
-                setLon(response.data[0].lon);
-                
-                setLat(response.data[0].lat);
-                
-                
+                let area = document.getElementById('display');
+                area.style.display = "block";
+               setData(response.data)
+               setTemp(response.data.current.temp_f + "°");
+               setDescription(response.data.current.condition.text);
+               setImg(response.data.current.condition.icon);
               
+               
             }); 
 
-            
-        
-            
-            
-           
         }
-        const getData = () => {
-            axios.get(weatherUrl).then((response) => {
-           
-                setTemp(response.data.main.temp)
-                convert()
-                
-              
-            }); 
-                
-        }
-        const convert = () => {
-            let celsius = temp - 273;
-            let f = celsius * ( 9 / 5 ) + 32;
-            console.log(f);
-            //setTemp(f);
-            
-        }
-    
+   
     return(
         <>
         <div className="container">
         <div className="title">
-            <h1 style={{color: 'white'}}>Weather App</h1>
+            <h1 id='titleLogo'>Weather App</h1>
             
 
         <div className="search"> 
            
             <input type="text" id='searchInput' placeholder='Enter City...' onChange={() => {
-                var input = document.getElementById('searchInput').value;
-                setCity(input);
-                getLoc();
+                let area = document.getElementById('display');
+                area.style.display = "none";
+                let input = document.getElementById('searchInput').value;
+                
+                let newInput = input.charAt(0).toUpperCase() + input.slice(1)
+                
+                setCity(newInput);
             }}/><br></br>
-            <button onClick={getData}>Show Weather</button>
+            <button onClick={getWeather}>Show Weather</button>
             
         </div>
         </div>
-        <div className="display">
-    
-        <h3 id='name'> {city} </h3>
-            <img src={{}} alt="" id='icon'/>
-            <h2 id='descr'> {description}</h2>
-            <h1 id='temp'> {temp}</h1>
+        <div className="display" id='display'>
+        
+        <h1 id='name'>{city}</h1>
+        <img src={img} alt="" id='icon'/>
+        <h3 id='descr'>{description}</h3>
+        <h2 id='temperature'>{temp}</h2>
+
 
         </div>
         </div>

@@ -1,0 +1,21 @@
+.footContainer{
+    background-color: rgb(13, 19, 69);
+    width: 100vw;
+    height: 100px;
+    position: absolute;
+    bottom: 0;
+    color: white;
+   
+    
+}
+.items{
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 30px;
+}
+.link a{
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+}
+
