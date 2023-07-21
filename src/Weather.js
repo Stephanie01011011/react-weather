@@ -6,7 +6,7 @@ import axios from 'axios';
 
 
 
-function Weather({city, temp, description, img}) {
+function Weather({city, temp, description, img, wind, humidity, precip, feel}) {
   
     
     
@@ -39,7 +39,16 @@ function Weather({city, temp, description, img}) {
         
         </div>
         
-
+        <div id="otherDisplay">
+            <div className="col1">
+                <h2>Wind: {wind}</h2>
+                <h2>Humidity: {humidity}</h2>
+            </div>
+            <div className="col2">
+                <h2>Precipitation: {precip}</h2>
+                <h2>Feels Like: {feel}</h2>
+            </div>
+        </div>
 
        
         

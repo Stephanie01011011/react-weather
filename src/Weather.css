@@ -16,5 +16,24 @@
 .descriptemp{
     margin-top: 4%;
 }
+#otherDisplay{
+    color: rgb(20, 6, 114);
+    position: absolute;
+    top: 40%;
+    left: 55%;
+    width: 450px;
+    height: 150px;
+    text-align: center;
+    justify-content: space-evenly;
+    display: none;
+
+}
+.col1 h2{
+    margin-bottom: 50px;
+}
+.col2 h2{
+    margin-bottom: 50px;
+}
+
 
 
