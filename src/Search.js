@@ -16,7 +16,7 @@ function Search(){
     const [precip, setPrecip] = useState("");
     const [humidity, setHumidity] = useState("");
     const [feel, setFeel] = useState("");
-    const url = `http://api.weatherapi.com/v1/current.json?key=${apikey}&q=${city}`;
+    const url = `https://api.weatherapi.com/v1/current.json?key=${apikey}&q=${city}`;
 
     const getWeather = () => {
            
