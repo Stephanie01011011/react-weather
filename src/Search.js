@@ -3,7 +3,7 @@ import axios from 'axios';
 import Weather from './Weather';
 import './Search.css';
 
-const apikey= process.env.REACT_APP_API_KEY;
+const apikey= "fa86a5b88d2945ecad1222440231907";
 
 function Search(){
     const [display, setDisplay] = useState(false);
