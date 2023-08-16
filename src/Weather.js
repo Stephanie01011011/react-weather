@@ -1,6 +1,5 @@
 import './Weather.css';
-import { useState } from 'react';
-import axios from 'axios';
+
 
 
 
@@ -12,10 +11,10 @@ function Weather({city, temp, description, img, wind, humidity, precip, feel}) {
     
     
 
-    let name = document.getElementById('name');
+    /*let name = document.getElementById('name');
     let icon = document.getElementById('icon');
     let descr = document.getElementById('descr');
-    let temperature = document.getElementById('temp');
+    let temperature = document.getElementById('temp');*/
     
     
     

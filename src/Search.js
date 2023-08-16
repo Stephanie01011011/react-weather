@@ -2,13 +2,16 @@ import { useState } from 'react';
 import axios from 'axios';
 import Weather from './Weather';
 import './Search.css';
+import { request } from 'react';
+
+
 
 const apikey= "fa86a5b88d2945ecad1222440231907";
 
 function Search(){
-    const [display, setDisplay] = useState(false);
+   
     const [img, setImg] = useState("");
-    const [data, setData] = useState({});
+    
     const [description, setDescription] = useState("")
     const [temp, setTemp] = useState("");
     const [city, setCity] = useState("");
@@ -18,6 +21,9 @@ function Search(){
     const [feel, setFeel] = useState("");
     const url = `https://api.weatherapi.com/v1/current.json?key=${apikey}&q=${city}`;
 
+    
+
+
     const getWeather = () => {
            
         axios.get(url).then((response) => {
@@ -25,7 +31,7 @@ function Search(){
             area2.style.display = "flex";
             let area = document.getElementById('display');
             area.style.display = "flex";
-           setData(response.data)
+           //setData(response.data)
            setTemp(response.data.current.temp_f + "°");
            setDescription(response.data.current.condition.text);
            setImg(response.data.current.condition.icon);
@@ -33,8 +39,12 @@ function Search(){
            setPrecip(response.data.current.precip_in);
            setHumidity(response.data.current.humidity);
            setFeel(response.data.current.feelslike_f);
+        
           
-           
+       
+ 
+
+
         }); 
 
     }
@@ -69,3 +79,4 @@ function Search(){
 }
 
 export default Search;
+
