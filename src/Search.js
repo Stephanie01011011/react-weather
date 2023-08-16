@@ -2,7 +2,7 @@ import { useState } from 'react';
 import axios from 'axios';
 import Weather from './Weather';
 import './Search.css';
-import { request } from 'react';
+
 
 
 
