@@ -50,7 +50,7 @@ function Search(){
     }
     useEffect(() => {
         getWeather();
-    }, []);
+    }, [getWeather]);
     return(
         <>
         <div className="container">
