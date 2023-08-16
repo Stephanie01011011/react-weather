@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import axios from 'axios';
 import Weather from './Weather';
 import './Search.css';
@@ -14,7 +14,7 @@ function Search(){
     
     const [description, setDescription] = useState("")
     const [temp, setTemp] = useState("");
-    const [city, setCity] = useState("");
+    const [city, setCity] = useState("Indianapolis");
     const [wind, setWind] = useState("");
     const [precip, setPrecip] = useState("");
     const [humidity, setHumidity] = useState("");
@@ -48,6 +48,9 @@ function Search(){
         }); 
 
     }
+    useEffect(() => {
+        getWeather();
+    }, []);
     return(
         <>
         <div className="container">
