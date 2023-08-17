@@ -32,11 +32,13 @@ function Weather({city, temp, description, img, wind, humidity, precip, feel}) {
         
         <div className="nameimg">
             <h1 id='name'>{city}</h1>
+            
             <img src={img} alt="" id='icon'/>
         </div>
        
        <div className="descriptemp">
         <h3 id='descr'>{description}</h3>
+        <hr />
         <h2 id='temperature'>{temp}</h2>
         </div>
         
