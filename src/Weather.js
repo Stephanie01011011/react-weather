@@ -23,8 +23,13 @@ function Weather({city, temp, description, img, wind, humidity, precip, feel}) {
    
     return(
         <>
-        
+        <div className="onload">
+        <h2 id='title-weather'>Check the weather</h2>
+        <img src="https://media2.giphy.com/media/3ov9jLYWb4zCjGfqIE/giphy.gif?cid=ecf05e4792etr2qoqxg5hiuf2ams99phkpgiyy9m14n5cx4e&ep=v1_stickers_search&rid=giphy.gif&ct=s" alt="sun" id='sun' />
+        </div>
+       
         <div className="display" id='display'>
+        
         <div className="nameimg">
             <h1 id='name'>{city}</h1>
             <img src={img} alt="" id='icon'/>

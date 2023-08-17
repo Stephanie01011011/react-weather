@@ -1,7 +1,8 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import axios from 'axios';
 import Weather from './Weather';
 import './Search.css';
+
 
 
 
@@ -21,8 +22,7 @@ function Search(){
     const [feel, setFeel] = useState("");
     const url = `https://api.weatherapi.com/v1/current.json?key=${apikey}&q=${city}`;
 
-    
-
+        
 
     const getWeather = () => {
            
@@ -40,26 +40,29 @@ function Search(){
            setHumidity(response.data.current.humidity);
            setFeel(response.data.current.feelslike_f);
         
-          
+          let onload = document.getElementsByClassName('onload')[0];
+          onload.style.display = "none";
        
  
 
 
         }); 
-
+    
     }
-    useEffect(() => {
-        getWeather();
-    }, [getWeather]);
+
+
+  
     return(
         <>
         <div className="container">
         <div className="title">
-            <h1 id='titleLogo'>Weather App</h1>
+            
          
         <div className="search"> 
            
             <input type="text" id='searchInput' placeholder='Enter City...' onChange={() => {
+                let onload = document.getElementsByClassName('onload')[0];
+                onload.style.display = "block";
                 let area = document.getElementById('display');
                 area.style.display = "none";
                 let area2 = document.getElementById('otherDisplay');
