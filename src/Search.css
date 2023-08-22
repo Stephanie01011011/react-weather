@@ -50,6 +50,8 @@
     background-repeat: no-repeat;
     width: 50vw;
     height: 100vh;
-    background-size: 1050px;
+    background-size: 100%;
+    background-attachment: fixed;
+  
    
 }
