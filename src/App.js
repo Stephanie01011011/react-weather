@@ -8,7 +8,7 @@ function App() {
   return (
     <div className="App">
       <Search />
-      <Footer />
+     
     </div>
   );
 }

@@ -2,7 +2,7 @@ import { useState} from 'react';
 import axios from 'axios';
 import Weather from './Weather';
 import './Search.css';
-
+import Footer from './Footer';
 
 
 
@@ -62,7 +62,7 @@ function Search(){
            
             <input type="text" id='searchInput' placeholder='Enter City...' onChange={() => {
                 let onload = document.getElementsByClassName('onload')[0];
-                onload.style.display = "block";
+                onload.style.display = "flex";
                 let area = document.getElementById('display');
                 area.style.display = "none";
                 let area2 = document.getElementById('otherDisplay');
@@ -80,6 +80,7 @@ function Search(){
         </div>
         <Weather city={city} temp={temp} img={img} description={description} wind={wind} humidity={humidity} precip={precip} feel={feel}/>
         </div>
+        <Footer />
         </>
     )
 }
